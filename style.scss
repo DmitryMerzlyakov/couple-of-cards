@@ -1,3 +1,26 @@
-.app {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
     background: #004980;
+}
+
+.app {
+    height: 774px;
+    width: 1024px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choiceForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 480px;
+    &__levelBox {
+        display: flex;
+    }
 }
