@@ -16,16 +16,31 @@ function renderStartPage(container) {
     const levelOne = document.createElement('button');
     levelOne.classList.add('choiceForm__level-one');
     levelOne.textContent = '1';
+    
+    levelOne.addEventListener('click', () => {
+        window.application.numbers = 1;
+    })
+
     levelBox.appendChild(levelOne);
 
     const levelTwo = document.createElement('button');
     levelTwo.classList.add('choiceForm__level-two');
     levelTwo.textContent = '2';
+
+    levelTwo.addEventListener('click', () => {
+        window.application.numbers = 2;
+    })
+
     levelBox.appendChild(levelTwo);
 
     const levelThree = document.createElement('button');
     levelThree.classList.add('choiceForm__level-three');
     levelThree.textContent = '3';
+
+    levelThree.addEventListener('click', () => {
+        window.application.numbers = 3;
+    })
+
     levelBox.appendChild(levelThree);
 
     choiceForm.appendChild(levelBox);
@@ -33,6 +48,18 @@ function renderStartPage(container) {
     const start = document.createElement('button');
     start.classList.add('choiceForm__button');
     start.textContent = 'Старт'
+
+    start.addEventListener('click', () => {
+        window.application.renderScreen('LevelOneScreens')
+        // if (window.application.numbers == '1') {
+        //     window.application.renderScreen('LevelOneScreens');
+        // } else if (window.application.numbers == '2') {
+        //     window.application.renderScreen('LevelTwoScreens');
+        // } else if (window.application.numbers == '3') {
+        //     window.application.renderScreen('LevelThreeScreens')
+        // };
+    });
+
     choiceForm.appendChild(start);
 
     container.appendChild(choiceForm);
