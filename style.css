@@ -11,6 +11,7 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
@@ -21,7 +22,7 @@ body {
     align-items: center;
     flex-direction: column;
     width: 480px;
-    background-color: #C2F5FF;
+    background-color: #c2f5ff;
     border-radius: 12px;
     margin-top: 158px;
 }
@@ -45,12 +46,12 @@ body {
     align-items: center;
     flex-wrap: nowrap;
     gap: 24px;
-    height:  98px;
+    height: 98px;
 }
 
 .choiceForm__level-one {
     background-image: url(//img/1.png);
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
@@ -65,7 +66,7 @@ body {
 
 .choiceForm__level-two {
     background-image: url(//img/1.png);
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
@@ -79,7 +80,7 @@ body {
 }
 
 .choiceForm__level-three {
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
@@ -94,8 +95,8 @@ body {
 
 .choiceForm__button {
     width: 246px;
-    height: 50px;   
-    background: #7AC100;
+    height: 50px;
+    background: #7ac100;
     border-radius: 12px;
     margin-bottom: 48px;
     margin-top: 67px;
@@ -105,5 +106,42 @@ body {
     font-size: 24px;
     line-height: 32px;
     font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #FFFFFF;
+    color: #ffffff;
+}
+
+.headerBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100px;
+    width: 1000%;
+}
+
+.headerBox__timer {
+    display: flex;
+    font-family: 'StratosSkyeng';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #ffffff;
+    width: 155px;
+    height: 72px;
+}
+
+.cardBox {
+    height: 200px;
+    width: 60%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 5%;
+}
+
+.cardBox__img {
+    width: 95px;
+    height: 133px;
 }
