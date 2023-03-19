@@ -131,17 +131,27 @@ body {
 }
 
 .cardBox {
-    height: 200px;
-    width: 60%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin: 5%;
+    margin-bottom: 5%;
 }
 
 .cardBox__img {
     width: 95px;
     height: 133px;
+}
+
+.fieldForGame {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.match {
+    background-image: url(./img/cardBack.jpg);
 }

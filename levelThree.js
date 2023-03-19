@@ -42,21 +42,67 @@ function renderLevelThreeBlock(container) {
     startGameBtn.addEventListener('click', () => {
         clearInterval(interval)
         interval = setInterval(startTimer, 1000)
+        for (let i = 0; i < 9; i++) {
+            arrayRandElement(cards)
+        }
     })
 
-    const cardBox = document.createElement('div')
-    cardBox.classList.add('cardBox')
+    const cardBoxOne = document.createElement('div')
+    cardBoxOne.classList.add('cardBox')
+    const cardBoxTwo = document.createElement('div')
+    cardBoxTwo.classList.add('cardBox')
+
+    let cards = []
+    cards = window.application.cards
+
+    function arrayRandElement(cards) {
+        let rand = Math.floor(Math.random() * cards.length)
+        let randomCard = cards[rand]
+        let ImgOne = document.createElement('img')
+        let ImgTwo = document.createElement('img')
+        ImgOne.src = randomCard.img
+        ImgOne.classList.add('cardBox__img')
+        ImgTwo.src = randomCard.img
+        ImgTwo.classList.add('cardBox__img')
+        cardBoxOne.appendChild(ImgOne)
+        cardBoxTwo.appendChild(ImgTwo)
+        let cardIdOne
+        const clickOne = () => {
+            window.application.cardIdOne.id = randomCard.id
+            cardIdOne = JSON.stringify(window.application.cardIdOne)
+            console.log(cardIdOne)
+            ifMatch()
+        }
+        ImgOne.addEventListener('click', () => {
+            clickOne()
+        })
+        let cardIdTwo
+        const clickTwo = () => {
+            window.application.cardIdTwo.id = randomCard.id
+            cardIdTwo = JSON.stringify(window.application.cardIdTwo)
+            console.log(cardIdTwo)
+            ifMatch()
+        }
+        ImgTwo.addEventListener('click', () => {
+            clickTwo()
+        })
+        function ifMatch() {
+            if (cardIdOne == cardIdTwo) {
+                ImgOne.src = './img/cardBack.jpg'
+                ImgTwo.src = './img/cardBack.jpg'
+            }
+        }
+    }
+
+    const fieldForGame = document.createElement('div')
+    fieldForGame.classList.add('fieldForGame')
+    fieldForGame.appendChild(cardBoxOne)
+    fieldForGame.appendChild(cardBoxTwo)
 
     headerBox.appendChild(timerBox)
     headerBox.appendChild(startGameBtn)
-    for (let i = 0; i < 18; i++) {
-        const backImg = document.createElement('img')
-        backImg.src = './img/cardBack.jpg'
-        backImg.classList.add('cardBox__img')
-        cardBox.appendChild(backImg)
-    }
     container.appendChild(headerBox)
-    container.appendChild(cardBox)
+    container.appendChild(fieldForGame)
 }
 
 window.application.blocks['LevelThreeBlock'] = renderLevelThreeBlock
