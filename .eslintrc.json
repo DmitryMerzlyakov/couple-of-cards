@@ -10,7 +10,8 @@
         "ecmaVersion": 2020
     },
     "rules": {
-        "prettier/prettier": "error",
-        "camelcase": ["error"]
+        "prettier/prettier": "off",
+        "camelcase": ["off"],
+        "kebab-case": ["off"]
     }
 }

@@ -130,7 +130,7 @@ function renderLevelOneBlock(container) {
 
 window.application.blocks['LevelOneBlock'] = renderLevelOneBlock;
 
-function renderLevelOneScreens() {
+function renderLevelOneScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

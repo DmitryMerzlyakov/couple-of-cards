@@ -107,7 +107,7 @@ function renderLevelThreeBlock(container) {
 
 window.application.blocks['LevelThreeBlock'] = renderLevelThreeBlock;
 
-function renderLevelThreeScreens() {
+function renderLevelThreeScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

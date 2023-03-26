@@ -107,7 +107,7 @@ function renderLevelTwoBlock(container) {
 
 window.application.blocks['LevelTwoBlock'] = renderLevelTwoBlock;
 
-function renderLevelTwoScreens() {
+function renderLevelTwoScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

@@ -28,7 +28,6 @@ body {
 }
 
 .choiceForm__text {
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -50,12 +49,11 @@ body {
 }
 
 .choiceForm__level-one {
-    background-image: url(//img/1.png);
-    background: #ffffff;
+    background: #fff;
+    background-image: url('//img/1.png');
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -65,12 +63,11 @@ body {
 }
 
 .choiceForm__level-two {
-    background-image: url(//img/1.png);
-    background: #ffffff;
+    background: #fff;
+    background-image: url('//img/1.png');
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -80,11 +77,10 @@ body {
 }
 
 .choiceForm__level-three {
-    background: #ffffff;
+    background: #fff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -100,13 +96,12 @@ body {
     border-radius: 12px;
     margin-bottom: 48px;
     margin-top: 67px;
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
     font-feature-settings: 'pnum' on, 'lnum' on;
-    color: #ffffff;
+    color: #fff;
 }
 
 .headerBox {
@@ -120,12 +115,11 @@ body {
 
 .headerBox__timer {
     display: flex;
-    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-size: 64px;
     line-height: 72px;
-    color: #ffffff;
+    color: #fff;
     width: 155px;
     height: 72px;
 }
@@ -153,5 +147,5 @@ body {
 }
 
 .match {
-    background-image: url(./img/cardBack.jpg);
+    background-image: url('./img/cardBack.jpg');
 }
