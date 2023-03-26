@@ -1,7 +1,7 @@
 function renderLevelThreeBlock(container) {
     console.log('Level 3');
-    let secs = 00,
-        mins = 00,
+    let secs = 0,
+        mins = 0,
         interval;
     const headerBox = document.createElement('div');
     headerBox.classList.add('headerBox');

@@ -1,8 +1,8 @@
 function renderLevelOneBlock(container) {
     console.log('Level 1');
-    let secs = 00,
-        mins = 00,
-        interval;
+    let secs = 0;
+    let mins = 0;
+    let interval;
     const headerBox = document.createElement('div');
     headerBox.classList.add('headerBox');
 
