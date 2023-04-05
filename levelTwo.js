@@ -1,3 +1,5 @@
+import './src/style.css'
+
 function renderLevelTwoBlock(container) {
     console.log('Level 2');
     let secs = 0,
@@ -107,7 +109,7 @@ function renderLevelTwoBlock(container) {
 
 window.application.blocks['LevelTwoBlock'] = renderLevelTwoBlock;
 
-function renderLevelTwoScreens(container) {
+export function renderLevelTwoScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

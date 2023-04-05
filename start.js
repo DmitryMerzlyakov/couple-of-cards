@@ -1,3 +1,8 @@
+import { renderLevelOneScreens } from './levelOne.js';
+import { renderLevelTwoScreens } from './levelTwo.js';
+import { renderLevelThreeScreens } from './levelThree.js';
+import './src/style.css'
+
 const container = document.querySelector('.app');
 
 function renderStartPage(container) {
@@ -51,11 +56,14 @@ function renderStartPage(container) {
 
     start.addEventListener('click', () => {
         if (window.application.numbers == '1') {
-            window.application.renderScreen('LevelOneScreens');
+            // window.application.renderScreen('LevelOneScreens')
+            renderLevelOneScreens(container);
         } else if (window.application.numbers == '2') {
-            window.application.renderScreen('LevelTwoScreens');
+            // window.application.renderScreen('LevelTwoScreens')
+            renderLevelTwoScreens(container);
         } else if (window.application.numbers == '3') {
-            window.application.renderScreen('LevelThreeScreens');
+            // window.application.renderScreen('LevelThreeScreens');
+            renderLevelThreeScreens(container);
         }
     });
 

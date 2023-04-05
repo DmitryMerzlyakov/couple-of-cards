@@ -1,3 +1,5 @@
+import './src/style.css'
+
 function renderLevelThreeBlock(container) {
     console.log('Level 3');
     let secs = 0,
@@ -107,7 +109,7 @@ function renderLevelThreeBlock(container) {
 
 window.application.blocks['LevelThreeBlock'] = renderLevelThreeBlock;
 
-function renderLevelThreeScreens(container) {
+export function renderLevelThreeScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

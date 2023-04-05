@@ -1,3 +1,5 @@
+import './src/style.css'
+
 function renderLevelOneBlock(container) {
     console.log('Level 1');
     let secs = 0;
@@ -90,9 +92,9 @@ function renderLevelOneBlock(container) {
         });
         function ifMatch() {
             if (cardIdOne == cardIdTwo) {
-                ImgOne.src = './img/cardBack.jpg';
+                ImgOne.src = './static/cardBack.jpg';
                 arrRightClick.push(cardIdOne);
-                ImgTwo.src = './img/cardBack.jpg';
+                ImgTwo.src = './static/cardBack.jpg';
                 arrRightClick.push(cardIdTwo);
             }
         }
@@ -130,7 +132,7 @@ function renderLevelOneBlock(container) {
 
 window.application.blocks['LevelOneBlock'] = renderLevelOneBlock;
 
-function renderLevelOneScreens(container) {
+export function renderLevelOneScreens(container) {
     const app = document.querySelector('.app');
     app.textContent = '';
 

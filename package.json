@@ -1,24 +1,31 @@
 {
     "scripts": {
         "format": "prettier --write .",
-        "start": "http-server -p 3004",
         "prepare": "husky install",
         "lint:js": "eslint ./*.js",
         "lint:css": "stylelint ./src/**.css",
-        "lint": "npm run lint:js && npm run lint:css"
+        "lint": "npm run lint:js && npm run lint:css",
+        "build": "SET NODE_ENV='production' && webpack",
+        "start": "webpack-dev-server"
     },
     "devDependencies": {
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.7.3",
+        "css-minimizer-webpack-plugin": "^5.0.0",
         "eslint": "^8.36.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^4.2.1",
         "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.7.5",
         "prettier": "^2.8.5",
+        "style-loader": "^3.3.2",
         "stylelint": "^14.16.0",
         "stylelint-config-prettier": "^9.0.4",
         "stylelint-config-standard": "^29.0.0",
-        "stylelint-prettier": "^3.0.0"
+        "stylelint-prettier": "^3.0.0",
+        "webpack": "^5.77.0",
+        "webpack-cli": "^5.0.1",
+        "webpack-dev-server": "^4.13.2"
     },
     "name": "couple-of-cards",
     "description": "Привет!",
