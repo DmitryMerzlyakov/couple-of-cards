@@ -55,16 +55,7 @@ function renderStartPage(container) {
     start.textContent = 'Старт';
 
     start.addEventListener('click', () => {
-        if (window.application.numbers == '1') {
-            // window.application.renderScreen('LevelOneScreens')
             renderLevelOneScreens(container);
-        } else if (window.application.numbers == '2') {
-            // window.application.renderScreen('LevelTwoScreens')
-            renderLevelTwoScreens(container);
-        } else if (window.application.numbers == '3') {
-            // window.application.renderScreen('LevelThreeScreens');
-            renderLevelThreeScreens(container);
-        }
     });
 
     choiceForm.appendChild(start);

@@ -1,5 +1,3 @@
-import './src/style.css'
-
 function renderLevelOneBlock(container) {
     console.log('Level 1');
     let secs = 0;
@@ -43,9 +41,21 @@ function renderLevelOneBlock(container) {
     startGameBtn.classList.add('choiceForm__button');
     startGameBtn.addEventListener('click', () => {
         interval = setInterval(startTimer, 1000);
-        for (let i = 0; i < 3; i++) {
-            arrayRandElement(cards);
-        }
+        if (window.application.numbers == '1') {
+            for (let i = 0; i < 3; i++) {
+                arrayRandElement(cards);
+            }
+        } else if (window.application.numbers == '2') {
+            for (let i = 0; i < 6; i++) {
+                arrayRandElement(cards);
+            }
+        } else if (window.application.numbers == '3') {
+            for (let i = 0; i < 9; i++) {
+                arrayRandElement(cards);
+            }
+        };
+        
+        startGameBtn.setAttribute('disabled', '');
     });
 
     const cardBoxOne = document.createElement('div');

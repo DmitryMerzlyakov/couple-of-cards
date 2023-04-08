@@ -45,7 +45,7 @@ module.exports = {
             template: './index.html'
         }),
         new CopyPlugin({
-            patterns: [{ from: 'img', to: 'static'}]
+            patterns: [{ from: 'static', to: 'static'}]
         })],
     devtool: isProdaction ? "hidden-source-map" : "source-map",
 };

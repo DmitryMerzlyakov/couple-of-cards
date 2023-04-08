@@ -576,13 +576,10 @@ function renderStartPage(container) {
 
     start.addEventListener('click', () => {
         if (window.application.numbers == '1') {
-            // window.application.renderScreen('LevelOneScreens')
             (0,_levelOne_js__WEBPACK_IMPORTED_MODULE_0__.renderLevelOneScreens)(container);
         } else if (window.application.numbers == '2') {
-            // window.application.renderScreen('LevelTwoScreens')
             (0,_levelTwo_js__WEBPACK_IMPORTED_MODULE_1__.renderLevelTwoScreens)(container);
         } else if (window.application.numbers == '3') {
-            // window.application.renderScreen('LevelThreeScreens');
             (0,_levelThree_js__WEBPACK_IMPORTED_MODULE_2__.renderLevelThreeScreens)(container);
         }
     });

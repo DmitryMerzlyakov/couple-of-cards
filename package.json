@@ -5,7 +5,7 @@
         "lint:js": "eslint ./*.js",
         "lint:css": "stylelint ./src/**.css",
         "lint": "npm run lint:js && npm run lint:css",
-        "build": "SET NODE_ENV='production' && webpack",
+        "build": "webpack",
         "start": "webpack-dev-server"
     },
     "devDependencies": {

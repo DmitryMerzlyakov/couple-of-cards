@@ -3,8 +3,19 @@
     padding: 0;
 }
 
+@font-face {
+    font-family: "StratosSkyeng";
+    font-style: normal;
+    font-weight: 400;
+    src: local("StratosSkyeng"),
+       url("../fonts/stratosskyengweb-regular.woff2") format("woff2"),
+       url("../fonts/stratosskyengweb-regular.woff") format("woff");
+}
+
+
 body {
     background: #004980;
+    font-family: "StratosSkyeng", "Arial", sans-serif;
 }
 
 .app {
@@ -28,6 +39,7 @@ body {
 }
 
 .choiceForm__text {
+    font-family: "StratosSkyeng";
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -37,6 +49,7 @@ body {
     color: #004980;
     margin-top: 52px;
     margin-bottom: 48px;
+    width: 65%;
 }
 
 .choiceForm__levelBox {
@@ -49,47 +62,44 @@ body {
 }
 
 .choiceForm__level-one {
+    font-family: "StratosSkyeng";
     background: #fff;
-    background-image: url('//img/1.png');
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-style: normal;
-    font-weight: 400;
     font-size: 40px;
-    line-height: 48px;
-    text-align: center;
     color: #004980;
+    border: 0;
+    font-size: 64px;
+    line-height: 72px;
 }
 
 .choiceForm__level-two {
+    font-family: "StratosSkyeng";
     background: #fff;
-    background-image: url('//img/1.png');
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
-    text-align: center;
+    font-size: 64px;
+    line-height: 72px;
     color: #004980;
+    border: 0;
 }
 
 .choiceForm__level-three {
+    font-family: "StratosSkyeng";
     background: #fff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
-    text-align: center;
+    font-size: 64px;
+    line-height: 72px;
     color: #004980;
+    border: 0;
 }
 
 .choiceForm__button {
+    font-family: "StratosSkyeng";
     width: 246px;
     height: 50px;
     background: #7ac100;
@@ -102,6 +112,11 @@ body {
     line-height: 32px;
     font-feature-settings: 'pnum' on, 'lnum' on;
     color: #fff;
+    border: 0;
+}
+
+.choiceForm__button:disabled {
+    opacity: 0.5;
 }
 
 .headerBox {
