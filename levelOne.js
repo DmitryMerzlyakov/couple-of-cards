@@ -1,5 +1,4 @@
 function renderLevelOneBlock(container) {
-    console.log('Level 1');
     let secs = 0;
     let mins = 0;
     let interval;
@@ -53,8 +52,8 @@ function renderLevelOneBlock(container) {
             for (let i = 0; i < 9; i++) {
                 arrayRandElement(cards);
             }
-        };
-        
+        }
+
         startGameBtn.setAttribute('disabled', '');
     });
 
@@ -66,67 +65,106 @@ function renderLevelOneBlock(container) {
     let cards = [];
     cards = window.application.cards;
     let arrRightClick = [];
+    let firstExam = [];
 
     function arrayRandElement(cards) {
         let rand = Math.floor(Math.random() * cards.length);
         let randomCard = cards[rand];
+        console.log(randomCard);
         let ImgOne = document.createElement('img');
         let ImgTwo = document.createElement('img');
         ImgOne.src = randomCard.img;
         ImgOne.classList.add('cardBox__img');
         ImgTwo.src = randomCard.img;
         ImgTwo.classList.add('cardBox__img');
+        const cardInterval = setInterval(() => {
+            ImgOne.src = './static/cardBack.jpg';
+            ImgTwo.src = './static/cardBack.jpg';
+        },2000)
         cardBoxOne.appendChild(ImgOne);
         cardBoxTwo.appendChild(ImgTwo);
         let cardIdOne;
         const clickOne = () => {
             window.application.cardIdOne.id = randomCard.id;
-            cardIdOne = JSON.stringify(window.application.cardIdOne);
+            cardIdOne = JSON.stringify(window.application.cardIdOne.id);
             console.log(cardIdOne);
-            ifMatch();
+            firstExam.push(cardIdOne);
+            arrRightClick.push(firstExam);
             gameOver(arrRightClick);
         };
         ImgOne.addEventListener('click', () => {
             clickOne();
+            console.log(arrRightClick);
+            console.log(firstExam);
+            if (firstExam.length >= 2) {
+                if (cardIdOne == cardIdTwo) {
+                    firstExam = []
+                } else {
+                    losepopup()
+                }
+            }
         });
         let cardIdTwo;
         const clickTwo = () => {
             window.application.cardIdTwo.id = randomCard.id;
-            cardIdTwo = JSON.stringify(window.application.cardIdTwo);
+            cardIdTwo = JSON.stringify(window.application.cardIdTwo.id);
             console.log(cardIdTwo);
-            ifMatch();
+            firstExam.push(cardIdTwo);
+            arrRightClick.push(firstExam);
             gameOver(arrRightClick);
         };
         ImgTwo.addEventListener('click', () => {
             clickTwo();
-        });
-        function ifMatch() {
-            if (cardIdOne == cardIdTwo) {
-                ImgOne.src = './static/cardBack.jpg';
-                arrRightClick.push(cardIdOne);
-                ImgTwo.src = './static/cardBack.jpg';
-                arrRightClick.push(cardIdTwo);
+            console.log(arrRightClick);
+            console.log(firstExam);
+            if (firstExam.length >= 2) {
+                if (cardIdOne == cardIdTwo) {
+                    firstExam = []
+                } else {
+                    losepopup()
+                }
             }
-        }
-        console.log(arrRightClick);
+        });
     }
 
+    function popup() {
+        const popup = document.createElement('div');
+        popup.classList.add('wrapper');
+        const win = document.createElement('h2');
+        win.textContent = 'Вы выиграли!';
+        popup.appendChild(win);
+        container.appendChild(popup);
+    }
+
+    function losepopup() {
+        const popup = document.createElement('div');
+        popup.classList.add('wrapper');
+        const win = document.createElement('h2');
+        win.textContent = 'Вы проиграли!';
+        popup.appendChild(win);
+        container.appendChild(popup);
+    }    
+
     function gameOver(arrRightClick) {
-        if (arrRightClick.length == '6') {
+        if (arrRightClick.length == 6 && window.application.numbers == '1') {
+            console.log('game over');
+            clearInterval(interval);
+            console.log(mins);
+            console.log(secs);
+            popup();
+        } else if (arrRightClick.length == 12 && window.application.numbers == '2') {
+            console.log('game over');
+            clearInterval(interval);
+            console.log(mins);
+            console.log(secs);
+            popup();
+        } else if (arrRightClick.length == 24 && window.application.numbers == '3') {
             console.log('game over');
             clearInterval(interval);
             console.log(mins);
             console.log(secs);
             popup();
         }
-    }
-
-    function popup() {
-        const popup = document.createElement('div');
-        const win = document.createElement('h2');
-        win.textContent = 'Вы выиграли!';
-        popup.appendChild(win);
-        container.appendChild(popup);
     }
 
     const fieldForGame = document.createElement('div');

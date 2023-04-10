@@ -4,7 +4,4 @@ extends:
         'stylelint-config-prettier',
         'stylelint-prettier/recommended',
     ]
-rules:
-    {
-        "selector-class-pattern": null
-    }
+rules: { 'selector-class-pattern': null }

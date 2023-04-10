@@ -1,7 +1,5 @@
 import { renderLevelOneScreens } from './levelOne.js';
-import { renderLevelTwoScreens } from './levelTwo.js';
-import { renderLevelThreeScreens } from './levelThree.js';
-import './src/style.css'
+import './src/style.css';
 
 const container = document.querySelector('.app');
 
@@ -55,7 +53,7 @@ function renderStartPage(container) {
     start.textContent = 'Старт';
 
     start.addEventListener('click', () => {
-            renderLevelOneScreens(container);
+        renderLevelOneScreens(container);
     });
 
     choiceForm.appendChild(start);
