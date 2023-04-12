@@ -34,7 +34,7 @@ function renderLevelOneBlock(container) {
             timeSeconds.innerText = '0' + secs;
         }
     }
-
+   
     const startGameBtn = document.createElement('button');
     startGameBtn.textContent = 'Начать игру';
     startGameBtn.classList.add('choiceForm__button');
@@ -80,11 +80,13 @@ function renderLevelOneBlock(container) {
         const cardInterval = setInterval(() => {
             ImgOne.src = './static/cardBack.jpg';
             ImgTwo.src = './static/cardBack.jpg';
-        },2000)
+        },6000)
         cardBoxOne.appendChild(ImgOne);
         cardBoxTwo.appendChild(ImgTwo);
         let cardIdOne;
         const clickOne = () => {
+            clearInterval(cardInterval)
+            ImgOne.src = randomCard.img
             window.application.cardIdOne.id = randomCard.id;
             cardIdOne = JSON.stringify(window.application.cardIdOne.id);
             console.log(cardIdOne);
@@ -106,6 +108,8 @@ function renderLevelOneBlock(container) {
         });
         let cardIdTwo;
         const clickTwo = () => {
+            clearInterval(cardInterval)
+            ImgTwo.src = randomCard.img
             window.application.cardIdTwo.id = randomCard.id;
             cardIdTwo = JSON.stringify(window.application.cardIdTwo.id);
             console.log(cardIdTwo);
@@ -130,19 +134,69 @@ function renderLevelOneBlock(container) {
     function popup() {
         const popup = document.createElement('div');
         popup.classList.add('wrapper');
+        popup.classList.add('popup');
+        const winImg = document.createElement('img');
+        winImg.src = './static/ImageWin.jpg';
+        winImg.classList.add('popup__img');
         const win = document.createElement('h2');
+        win.classList.add('popup__text')
         win.textContent = 'Вы выиграли!';
+        const time = document.createElement('h2');
+        time.textContent = 'Затраченное время:';
+        const timeToWin = document.createElement('div');
+        timeToWin.textContent = '00:00';
+        timeToWin.classList.add('headerBox__timer');
+        timerBox.classList.add('popup__time');
+        const newGame = document.createElement('button');
+        newGame.classList.add('choiceForm__button');
+        newGame.classList.add('newGame');
+        newGame.textContent = 'Играть снова';
+        newGame.addEventListener('click', () => {
+            renderLevelOneScreens(container);
+            popup.classList.add('none');
+        })
+        popup.appendChild(winImg);
         popup.appendChild(win);
+        popup.appendChild(time);
+        popup.appendChild(timerBox);
+        popup.appendChild(newGame);
+        headerBox.appendChild(timeToWin);
+        headerBox.appendChild(startGameBtn);
         container.appendChild(popup);
     }
 
     function losepopup() {
-        const popup = document.createElement('div');
-        popup.classList.add('wrapper');
+        const losepopup = document.createElement('div');
+        losepopup.classList.add('wrapper');
+        losepopup.classList.add('popup');
+        const winImg = document.createElement('img');
+        winImg.src = './static/ImageLose.jpg';
+        winImg.classList.add('popup__img');
         const win = document.createElement('h2');
+        win.classList.add('popup__text')
         win.textContent = 'Вы проиграли!';
-        popup.appendChild(win);
-        container.appendChild(popup);
+        const time = document.createElement('h2');
+        time.textContent = 'Затраченное время:';
+        const timeToWin = document.createElement('div');
+        timeToWin.textContent = '00:00';
+        timeToWin.classList.add('headerBox__timer');
+        timerBox.classList.add('popup__time');
+        const newGame = document.createElement('button');
+        newGame.classList.add('choiceForm__button');
+        newGame.classList.add('newGame');
+        newGame.textContent = 'Играть снова';
+        newGame.addEventListener('click', () => {
+            renderLevelOneScreens(container);
+            losepopup.classList.add('none');
+        })
+        losepopup.appendChild(winImg);
+        losepopup.appendChild(win);
+        losepopup.appendChild(time);
+        losepopup.appendChild(timerBox);
+        losepopup.appendChild(newGame);
+        headerBox.appendChild(timeToWin);
+        headerBox.appendChild(startGameBtn);
+        container.appendChild(losepopup);
     }    
 
     function gameOver(arrRightClick) {
@@ -158,7 +212,7 @@ function renderLevelOneBlock(container) {
             console.log(mins);
             console.log(secs);
             popup();
-        } else if (arrRightClick.length == 24 && window.application.numbers == '3') {
+        } else if (arrRightClick.length == 18 && window.application.numbers == '3') {
             console.log('game over');
             clearInterval(interval);
             console.log(mins);

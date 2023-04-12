@@ -33,6 +33,7 @@ module.exports = {
     },
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
+        minimize: true,
     },
     plugins: [
         new MiniCssExtractPlugin(),
