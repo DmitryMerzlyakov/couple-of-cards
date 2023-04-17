@@ -2,15 +2,17 @@ function renderLevelOneBlock(container) {
     let secs = 0;
     let mins = 0;
     let interval;
+    let count = 6;
+    let countdownTime;
     const headerBox = document.createElement('div');
     headerBox.classList.add('headerBox');
 
     const timerBox = document.createElement('div');
-    const timeMinute = document.createElement('div');
+    const timeMinute : HTMLDivElement = document.createElement('div');
     timeMinute.textContent = '00';
     const timeDelimiter = document.createElement('div');
     timeDelimiter.textContent = ':';
-    const timeSeconds = document.createElement('div');
+    const timeSeconds : HTMLDivElement = document.createElement('div');
     timeSeconds.textContent = '00';
     timerBox.id = 'timerid';
     timerBox.classList.add('headerBox__timer');
@@ -19,36 +21,51 @@ function renderLevelOneBlock(container) {
     timerBox.appendChild(timeDelimiter);
     timerBox.appendChild(timeSeconds);
 
-    function startTimer() {
-        secs++;
-        if (secs <= 9) {
-            timeSeconds.innerText = '0' + secs;
-        }
-        if (secs > 9) {
-            timeSeconds.innerText = secs;
-        }
-        if (secs > 60) {
-            mins++;
-            timeMinute.innerText = '0' + mins;
-            secs = 0;
-            timeSeconds.innerText = '0' + secs;
-        }
+    const countdownTimer = document.createElement('div');
+    countdownTimer.classList.add('headerBox__timer');
+
+    function countDown () {
+        count--
+        countdownTimer.innerHTML = `00:0${count}`
     }
+
+    function startTimer() {
+        if (count == 0) {
+            clearInterval(countdownTime)
+            countdownTimer.textContent = 'Поехали!'
+            secs++;
+            if (secs <= 9) {
+                timeSeconds.innerText = '0' + secs;
+            }
+            if (secs > 9) {
+                timeSeconds.innerText = `${secs}`;
+            }
+            if (secs > 60) {
+                mins++;
+                timeMinute.innerText = '0' + mins;
+                secs = 0;
+                timeSeconds.innerText = '0' + secs;
+            }
+        }    
+    }
+
    
     const startGameBtn = document.createElement('button');
     startGameBtn.textContent = 'Начать игру';
     startGameBtn.classList.add('choiceForm__button');
     startGameBtn.addEventListener('click', () => {
+        countdownTimer.textContent = '00:06';
         interval = setInterval(startTimer, 1000);
-        if (window.application.numbers == '1') {
+        countdownTime = setInterval(countDown, 1000)
+        if (window.application.numbers == 1) {
             for (let i = 0; i < 3; i++) {
                 arrayRandElement(cards);
             }
-        } else if (window.application.numbers == '2') {
+        } else if (window.application.numbers == 2) {
             for (let i = 0; i < 6; i++) {
                 arrayRandElement(cards);
             }
-        } else if (window.application.numbers == '3') {
+        } else if (window.application.numbers == 3) {
             for (let i = 0; i < 9; i++) {
                 arrayRandElement(cards);
             }
@@ -64,8 +81,8 @@ function renderLevelOneBlock(container) {
 
     let cards = [];
     cards = window.application.cards;
-    let arrRightClick = [];
-    let firstExam = [];
+    let arrRightClick : any = [];
+    let firstExam : any = [];
 
     function arrayRandElement(cards) {
         let rand = Math.floor(Math.random() * cards.length);
@@ -83,13 +100,13 @@ function renderLevelOneBlock(container) {
         },6000)
         cardBoxOne.appendChild(ImgOne);
         cardBoxTwo.appendChild(ImgTwo);
-        let cardIdOne;
+        let cardIdOne: string = '';
         const clickOne = () => {
             clearInterval(cardInterval)
             ImgOne.src = randomCard.img
             window.application.cardIdOne.id = randomCard.id;
             cardIdOne = JSON.stringify(window.application.cardIdOne.id);
-            console.log(cardIdOne);
+            console.log(typeof cardIdOne);
             firstExam.push(cardIdOne);
             arrRightClick.push(firstExam);
             gameOver(arrRightClick);
@@ -106,13 +123,13 @@ function renderLevelOneBlock(container) {
                 }
             }
         });
-        let cardIdTwo;
+        let cardIdTwo : string = ''; 
         const clickTwo = () => {
             clearInterval(cardInterval)
             ImgTwo.src = randomCard.img
             window.application.cardIdTwo.id = randomCard.id;
             cardIdTwo = JSON.stringify(window.application.cardIdTwo.id);
-            console.log(cardIdTwo);
+            console.log(typeof cardIdTwo);
             firstExam.push(cardIdTwo);
             arrRightClick.push(firstExam);
             gameOver(arrRightClick);
@@ -155,6 +172,7 @@ function renderLevelOneBlock(container) {
             renderLevelOneScreens(container);
             popup.classList.add('none');
         })
+        countdownTimer.classList.add('none');
         popup.appendChild(winImg);
         popup.appendChild(win);
         popup.appendChild(time);
@@ -166,6 +184,7 @@ function renderLevelOneBlock(container) {
     }
 
     function losepopup() {
+        clearInterval(interval);
         const losepopup = document.createElement('div');
         losepopup.classList.add('wrapper');
         losepopup.classList.add('popup');
@@ -189,6 +208,7 @@ function renderLevelOneBlock(container) {
             renderLevelOneScreens(container);
             losepopup.classList.add('none');
         })
+        countdownTimer.classList.add('none');
         losepopup.appendChild(winImg);
         losepopup.appendChild(win);
         losepopup.appendChild(time);
@@ -200,19 +220,19 @@ function renderLevelOneBlock(container) {
     }    
 
     function gameOver(arrRightClick) {
-        if (arrRightClick.length == 6 && window.application.numbers == '1') {
+        if (arrRightClick.length == 6 && window.application.numbers == 1) {
             console.log('game over');
             clearInterval(interval);
             console.log(mins);
             console.log(secs);
             popup();
-        } else if (arrRightClick.length == 12 && window.application.numbers == '2') {
+        } else if (arrRightClick.length == 12 && window.application.numbers == 2) {
             console.log('game over');
             clearInterval(interval);
             console.log(mins);
             console.log(secs);
             popup();
-        } else if (arrRightClick.length == 18 && window.application.numbers == '3') {
+        } else if (arrRightClick.length == 18 && window.application.numbers == 3) {
             console.log('game over');
             clearInterval(interval);
             console.log(mins);
@@ -227,6 +247,7 @@ function renderLevelOneBlock(container) {
     fieldForGame.appendChild(cardBoxTwo);
 
     headerBox.appendChild(timerBox);
+    headerBox.appendChild(countdownTimer);
     headerBox.appendChild(startGameBtn);
     container.appendChild(headerBox);
     container.appendChild(fieldForGame);
@@ -235,7 +256,7 @@ function renderLevelOneBlock(container) {
 window.application.blocks['LevelOneBlock'] = renderLevelOneBlock;
 
 export function renderLevelOneScreens(container) {
-    const app = document.querySelector('.app');
+    const app: any = document.querySelector('.app');
     app.textContent = '';
 
     const LevelOne = document.createElement('div');

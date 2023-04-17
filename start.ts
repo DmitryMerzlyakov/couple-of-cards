@@ -1,4 +1,4 @@
-import { renderLevelOneScreens } from './levelOne.js';
+import { renderLevelOneScreens } from './levelOne';
 import './src/style.css';
 
 const container = document.querySelector('.app');

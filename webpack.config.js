@@ -8,7 +8,7 @@ const isProdaction = process.env.NODE_ENV === 'production';
 
 
 module.exports = {
-    entry: './start.js',
+    entry: './start.ts',
     mode: isProdaction ? 'production' : 'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -17,6 +17,11 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.ts$/,
+                use: "ts-loader",
+                exclude: /node_modules/,
+            },
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -30,6 +35,9 @@ module.exports = {
                 type: 'asset/resource',
             },
         ],
+    },
+    resolve: {
+        extensions: [".ts", ".js"],
     },
     optimization: {
         minimizer: ['...', new CssMinimizerPlugin()],
