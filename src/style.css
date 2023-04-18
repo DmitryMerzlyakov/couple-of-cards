@@ -97,6 +97,11 @@ body {
     border: 0;
 }
 
+.choiceForm__level-active {
+    box-sizing: border-box;
+    border: 5px solid #004980;
+}
+
 .choiceForm__button {
     font-family: 'StratosSkyeng';
     width: 246px;
@@ -218,4 +223,14 @@ body {
 
 .newGame {
     margin: 40px 0 0 0;
+}
+
+.startBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 45%;
+    gap: 5px;
+    margin-top: 5%;
+    margin-bottom: 0;
 }

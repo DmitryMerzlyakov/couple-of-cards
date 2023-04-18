@@ -22,6 +22,9 @@ function renderStartPage(container) {
 
     levelOne.addEventListener('click', () => {
         window.application.numbers = 1;
+        levelOne.classList.add('choiceForm__level-active');
+        levelTwo.classList.remove('choiceForm__level-active');
+        levelThree.classList.remove('choiceForm__level-active');
     });
 
     levelBox.appendChild(levelOne);
@@ -32,6 +35,9 @@ function renderStartPage(container) {
 
     levelTwo.addEventListener('click', () => {
         window.application.numbers = 2;
+        levelTwo.classList.add('choiceForm__level-active');
+        levelOne.classList.remove('choiceForm__level-active');
+        levelThree.classList.remove('choiceForm__level-active');
     });
 
     levelBox.appendChild(levelTwo);
@@ -42,6 +48,9 @@ function renderStartPage(container) {
 
     levelThree.addEventListener('click', () => {
         window.application.numbers = 3;
+        levelThree.classList.add('choiceForm__level-active');
+        levelTwo.classList.remove('choiceForm__level-active');
+        levelOne.classList.remove('choiceForm__level-active');
     });
 
     levelBox.appendChild(levelThree);

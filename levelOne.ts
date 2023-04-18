@@ -31,6 +31,8 @@ function renderLevelOneBlock(container) {
 
     function startTimer() {
         if (count == 0) {
+            cardBoxOne.style.pointerEvents='auto';
+            cardBoxTwo.style.pointerEvents='auto';
             clearInterval(countdownTime)
             countdownTimer.textContent = 'Поехали!'
             secs++;
@@ -54,7 +56,11 @@ function renderLevelOneBlock(container) {
     startGameBtn.textContent = 'Начать игру';
     startGameBtn.classList.add('choiceForm__button');
     startGameBtn.addEventListener('click', () => {
+        container.removeChild(startBox);
+        startBox.classList.add('none');
         countdownTimer.textContent = '00:06';
+        cardBoxOne.style.pointerEvents='none';
+        cardBoxTwo.style.pointerEvents='none';
         interval = setInterval(startTimer, 1000);
         countdownTime = setInterval(countDown, 1000)
         if (window.application.numbers == 1) {
@@ -74,6 +80,19 @@ function renderLevelOneBlock(container) {
         startGameBtn.setAttribute('disabled', '');
     });
 
+    const startBox = document.createElement('div');
+    startBox.classList.add('startBox');
+    if (window.application.numbers !== 0) {
+        for (let i = 0; i < 12; i++) {
+            const startCard = document.createElement('img');
+            startCard.classList.add('cardBox__img');
+            startCard.src = './static/cardBack.jpg';
+            startBox.appendChild(startCard);
+        }
+    }
+
+
+
     const cardBoxOne = document.createElement('div');
     cardBoxOne.classList.add('cardBox');
     const cardBoxTwo = document.createElement('div');
@@ -83,7 +102,7 @@ function renderLevelOneBlock(container) {
     cards = window.application.cards;
     let arrRightClick : any = [];
     let firstExam : any = [];
-
+    
     function arrayRandElement(cards) {
         let rand = Math.floor(Math.random() * cards.length);
         let randomCard = cards[rand];
@@ -250,6 +269,7 @@ function renderLevelOneBlock(container) {
     headerBox.appendChild(countdownTimer);
     headerBox.appendChild(startGameBtn);
     container.appendChild(headerBox);
+    container.appendChild(startBox);
     container.appendChild(fieldForGame);
 }
 
