@@ -199,6 +199,7 @@ function renderLevelOneBlock(container) {
         popup.appendChild(newGame);
         headerBox.appendChild(timeToWin);
         headerBox.appendChild(startGameBtn);
+        container.removeChild(fieldForGame);
         container.appendChild(popup);
     }
 
@@ -235,6 +236,7 @@ function renderLevelOneBlock(container) {
         losepopup.appendChild(newGame);
         headerBox.appendChild(timeToWin);
         headerBox.appendChild(startGameBtn);
+        container.removeChild(fieldForGame);
         container.appendChild(losepopup);
     }    
 
