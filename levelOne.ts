@@ -8,11 +8,11 @@ function renderLevelOneBlock(container) {
     headerBox.classList.add('headerBox');
 
     const timerBox = document.createElement('div');
-    const timeMinute : HTMLDivElement = document.createElement('div');
+    const timeMinute : HTMLElement = document.createElement('div');
     timeMinute.textContent = '00';
     const timeDelimiter = document.createElement('div');
     timeDelimiter.textContent = ':';
-    const timeSeconds : HTMLDivElement = document.createElement('div');
+    const timeSeconds : HTMLElement = document.createElement('div');
     timeSeconds.textContent = '00';
     timerBox.id = 'timerid';
     timerBox.classList.add('headerBox__timer');
@@ -50,8 +50,7 @@ function renderLevelOneBlock(container) {
             }
         }    
     }
-
-   
+    
     const startGameBtn = document.createElement('button');
     startGameBtn.textContent = 'Начать игру';
     startGameBtn.classList.add('choiceForm__button');
@@ -274,6 +273,8 @@ function renderLevelOneBlock(container) {
 }
 
 window.application.blocks['LevelOneBlock'] = renderLevelOneBlock;
+
+module.exports = renderLevelOneBlock;
 
 export function renderLevelOneScreens(container) {
     const app : HTMLElement | null = document.querySelector('.app');
