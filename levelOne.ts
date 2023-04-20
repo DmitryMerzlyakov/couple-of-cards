@@ -65,15 +65,15 @@ function renderLevelOneBlock(container) {
         countdownTime = setInterval(countDown, 1000)
         if (window.application.numbers == 1) {
             for (let i = 0; i < 3; i++) {
-                arrayRandElement(cards);
+                arrayRandElement(neWcards);
             }
         } else if (window.application.numbers == 2) {
             for (let i = 0; i < 6; i++) {
-                arrayRandElement(cards);
+                arrayRandElement(neWcards);
             }
         } else if (window.application.numbers == 3) {
             for (let i = 0; i < 9; i++) {
-                arrayRandElement(cards);
+                arrayRandElement(neWcards);
             }
         }
 
@@ -98,14 +98,14 @@ function renderLevelOneBlock(container) {
     const cardBoxTwo = document.createElement('div');
     cardBoxTwo.classList.add('cardBox');
 
-    let cards = [];
-    cards = window.application.cards;
-    let arrRightClick : any = [];
-    let firstExam : any = [];
+    let neWcards = [];
+    neWcards = window.application.cards;
+    let arrRightClick : object[] = [];
+    let firstExam : string[] = [];
     
-    function arrayRandElement(cards) {
-        let rand = Math.floor(Math.random() * cards.length);
-        let randomCard = cards[rand];
+    function arrayRandElement(neWcards) {
+        let rand = Math.floor(Math.random() * neWcards.length);
+        let randomCard = neWcards[rand];
         console.log(randomCard);
         let ImgOne = document.createElement('img');
         let ImgTwo = document.createElement('img');
@@ -119,14 +119,13 @@ function renderLevelOneBlock(container) {
         },6000)
         cardBoxOne.appendChild(ImgOne);
         cardBoxTwo.appendChild(ImgTwo);
-        let cardIdOne: string = '';
+        let newCardIdOne: string;
         const clickOne = () => {
             clearInterval(cardInterval)
             ImgOne.src = randomCard.img
             window.application.cardIdOne.id = randomCard.id;
-            cardIdOne = JSON.stringify(window.application.cardIdOne.id);
-            console.log(typeof cardIdOne);
-            firstExam.push(cardIdOne);
+            newCardIdOne = window.application.cardIdOne.id;
+            firstExam.push(newCardIdOne);
             arrRightClick.push(firstExam);
             gameOver(arrRightClick);
         };
@@ -135,21 +134,20 @@ function renderLevelOneBlock(container) {
             console.log(arrRightClick);
             console.log(firstExam);
             if (firstExam.length >= 2) {
-                if (cardIdOne == cardIdTwo) {
+                if (newCardIdOne == newCardIdTwo) {
                     firstExam = []
                 } else {
                     losepopup()
                 }
             }
         });
-        let cardIdTwo : string = ''; 
+        let newCardIdTwo: string; 
         const clickTwo = () => {
             clearInterval(cardInterval)
             ImgTwo.src = randomCard.img
             window.application.cardIdTwo.id = randomCard.id;
-            cardIdTwo = JSON.stringify(window.application.cardIdTwo.id);
-            console.log(typeof cardIdTwo);
-            firstExam.push(cardIdTwo);
+            newCardIdTwo = window.application.cardIdTwo.id;
+            firstExam.push(newCardIdTwo);
             arrRightClick.push(firstExam);
             gameOver(arrRightClick);
         };
@@ -158,7 +156,7 @@ function renderLevelOneBlock(container) {
             console.log(arrRightClick);
             console.log(firstExam);
             if (firstExam.length >= 2) {
-                if (cardIdOne == cardIdTwo) {
+                if (newCardIdOne == newCardIdTwo) {
                     firstExam = []
                 } else {
                     losepopup()
@@ -278,8 +276,8 @@ function renderLevelOneBlock(container) {
 window.application.blocks['LevelOneBlock'] = renderLevelOneBlock;
 
 export function renderLevelOneScreens(container) {
-    const app: any = document.querySelector('.app');
-    app.textContent = '';
+    const app : HTMLElement | null = document.querySelector('.app');
+    app!.textContent = '';
 
     const LevelOne = document.createElement('div');
 

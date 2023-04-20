@@ -4,10 +4,10 @@
 }
 
 @font-face {
-    font-family: 'StratosSkyeng';
+    font-family: "StratosSkyeng";
     font-style: normal;
     font-weight: 400;
-    src: local('StratosSkyeng'),
+    src: local(StratosSkyeng),
         url('../fonts/stratosskyengweb-regular.woff2') format('woff2'),
         url('../fonts/stratosskyengweb-regular.woff') format('woff');
 }
@@ -103,7 +103,7 @@ body {
 }
 
 .choiceForm__button {
-    font-family: 'StratosSkyeng';
+    font-family: "StratosSkyeng";
     width: 246px;
     height: 50px;
     background: #7ac100;
@@ -170,7 +170,7 @@ body {
 }
 
 .wrapper {
-    background: rgba(60,60,60, .4);
+    /* background: rgba(65, 64, 64, .4); */
     display: flex;
     align-items: center;
     position: absolute;
@@ -184,7 +184,7 @@ body {
 .popup {
     width: 480px;
     height: 459px;
-    background: #C2F5FF;
+    background: #c2f5ff;
     border-radius: 12px;
 }
 
@@ -205,7 +205,7 @@ body {
     font-weight: 400;
     font-size: 64px;
     line-height: 72px;
-    color: #000000;
+    color: #000;
     margin-bottom: 10px;
 }
 
@@ -217,12 +217,12 @@ body {
     display: none;
 }
 
-.winImg{
-    background-image: url(//static/ImageWin.jpg);
+.winImg {
+    background-image: url('../static/ImageWin.jpg');
 }
 
 .newGame {
-    margin: 40px 0 0 0;
+    margin: 40px 0 0;
 }
 
 .startBox {
