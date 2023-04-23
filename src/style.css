@@ -1,15 +1,15 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 @font-face {
-    font-family: "StratosSkyeng";
+    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     src: local(StratosSkyeng),
         url('../fonts/stratosskyengweb-regular.woff2') format('woff2'),
         url('../fonts/stratosskyengweb-regular.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
 }
 
 .choiceForm__text {
-    font-family: 'StratosSkyeng';
+    /* font-family: 'StratosSkyeng'; */
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
@@ -61,12 +61,11 @@ body {
 }
 
 .choiceForm__level-one {
-    font-family: 'StratosSkyeng';
+    /* font-family: 'StratosSkyeng'; */
     background: #fff;
     border-radius: 12px;
     width: 98px;
     height: 100%;
-    font-size: 40px;
     color: #004980;
     border: 0;
     font-size: 64px;
@@ -74,7 +73,7 @@ body {
 }
 
 .choiceForm__level-two {
-    font-family: 'StratosSkyeng';
+    /* font-family: 'StratosSkyeng'; */
     background: #fff;
     border-radius: 12px;
     width: 98px;
@@ -86,7 +85,7 @@ body {
 }
 
 .choiceForm__level-three {
-    font-family: 'StratosSkyeng';
+    /* font-family: 'StratosSkyeng'; */
     background: #fff;
     border-radius: 12px;
     width: 98px;
@@ -103,7 +102,7 @@ body {
 }
 
 .choiceForm__button {
-    font-family: "StratosSkyeng";
+    /* font-family: 'StratosSkyeng'; */
     width: 246px;
     height: 50px;
     background: #7ac100;
